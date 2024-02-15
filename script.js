@@ -8,6 +8,7 @@ const score = document.querySelector("#score");
 let result = 0;
 let hitPosition;
 let currentTime = 10;
+let timerId;
 
 function randomSquare() {
   //removing the mole for a clean slate
@@ -38,7 +39,6 @@ squares.forEach((square) => {
 
 // timing for the mole to move
 function moveMole() {
-  let timerId = null;
   timerId = setInterval(randomSquare, 1000);
 }
 
@@ -50,6 +50,7 @@ function countDown() {
 
   if (currentTime == 0) {
     clearInterval(countDownTimerId);
+    clearInterval(timerId);
     alert("GAME OVER! Your final score is " + result);
   }
 }
