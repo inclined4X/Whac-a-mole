@@ -18,11 +18,12 @@ function randomSquare() {
   // add a mole in random
   randomSquare.classList.add("mole");
 }
+randomSquare();
 
-// timing
+// timing for the mole to move
 function moveMole() {
   let timerId = null;
   timerId = setInterval(randomSquare, 500);
 }
 
-randomSquare();
+moveMole();
