@@ -15,7 +15,14 @@ function randomSquare() {
 
   // using a random number to place the mole
   let randomSquare = squares[Math.floor(Math.random() * 9)];
+  // add a mole in random
   randomSquare.classList.add("mole");
+}
+
+// timing
+function moveMole() {
+  let timerId = null;
+  timerId = setInterval(randomSquare, 500);
 }
 
 randomSquare();
