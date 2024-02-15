@@ -6,6 +6,7 @@ const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
 
 let result = 0;
+let hitPosition;
 
 function randomSquare() {
   //removing the mole for a clean slate
@@ -17,8 +18,20 @@ function randomSquare() {
   let randomSquare = squares[Math.floor(Math.random() * 9)];
   // add a mole in random
   randomSquare.classList.add("mole");
+
+  //
+  hitPosition = randomSquare.id;
 }
 randomSquare();
+
+// anything we hit a mole we have to get some points
+squares.forEach((square) => {
+  square.addEventListener("mousedown", () => {
+    if (square.id == hitPosition) {
+      result++;
+    }
+  });
+});
 
 // timing for the mole to move
 function moveMole() {
