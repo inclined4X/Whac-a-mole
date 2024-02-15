@@ -7,6 +7,7 @@ const score = document.querySelector("#score");
 
 let result = 0;
 let hitPosition;
+let currentTime = 60;
 
 function randomSquare() {
   //removing the mole for a clean slate
@@ -30,6 +31,7 @@ squares.forEach((square) => {
     if (square.id == hitPosition) {
       result++;
       score.textContent = result;
+      hitPosition = null;
     }
   });
 });
@@ -37,7 +39,14 @@ squares.forEach((square) => {
 // timing for the mole to move
 function moveMole() {
   let timerId = null;
-  timerId = setInterval(randomSquare, 500);
+  timerId = setInterval(randomSquare, 1000);
 }
 
 moveMole();
+
+function countDown() {
+  currentTime--;
+  timeLeft.textContent = currentTime;
+}
+
+let countDownTimerId = setInterval(countDown, 1000);
